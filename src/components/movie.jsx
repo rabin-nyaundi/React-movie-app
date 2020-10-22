@@ -12,7 +12,15 @@ class Movie extends Component {
         console.log(movie)
     }
     render() { 
-        return <table className="table table-hover table-dark">
+
+        const { length:count } = this.state.movies;
+        if (count === 0)
+            return "There are no movies";
+        
+        return (
+            <React.Fragment>
+                <p>Showing {count} movies </p>
+            <table className="table table-hover table-dark">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -34,7 +42,9 @@ class Movie extends Component {
                     </tr>
                 ))}
             </tbody>
-        </table>;
+        </table>
+            </React.Fragment>
+        );
     }
 }
  
